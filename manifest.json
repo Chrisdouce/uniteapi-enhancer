@@ -2,12 +2,17 @@
   "manifest_version": 3,
   "name": "UniteAPI Enhancer",
   "version": "1.0",
-  "description": "Removes ad elements from uniteapi.dev and enhances the user experience.",
+  "description": "Enhances the uniteapi.dev experience by hiding specific UI elements and improving stat readability.",
   "content_scripts": [
     {
       "matches": ["*://dev.uniteapi.dev/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }
