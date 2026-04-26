@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "UniteAPI Enhancer",
+  "version": "1.0",
+  "description": "Removes ad elements from uniteapi.dev and enhances the user experience.",
+  "content_scripts": [
+    {
+      "matches": ["*://dev.uniteapi.dev/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
