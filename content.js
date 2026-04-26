@@ -14,18 +14,55 @@ function enlargeStats(node = document) {
   // only run on player pages
   if (!window.location.pathname.includes("/p/")) return;
 
-  const stats = node.querySelectorAll(
+  const playerStats = node.querySelectorAll(
     "div.font-bold.font-mono.leading-none"
   );
 
-  stats.forEach(stat => {
+  playerStats.forEach(stat => {
     stat.classList.remove("text-sm", "text-md");
     stat.classList.add("text-xl");
+  });
+
+  const pokemonStats = node.querySelectorAll(
+    "div.font-bold.text-sm.font-mono.leading-none"
+  );
+
+  pokemonStats.forEach(stat => {
+    stat.classList.remove("text-sm");
+    stat.classList.add("text-lg");
+  });
+}
+
+function enhancePokemonList(node = document) {
+  if (!window.location.pathname.includes("/p/")) return;
+
+  const rows = node.querySelectorAll(
+    ".flex.items-center.gap-2.p-2.rounded-lg"
+  );
+
+  rows.forEach((row, index) => {
+    // Increase name size
+    const name = row.querySelector("span.font-medium");
+    if (name) {
+      name.classList.remove("text-xs");
+      name.classList.add("text-sm");
+    }
+
+    // Increase Games/Win% text size
+    const stats = row.querySelectorAll(".font-mono.font-medium");
+    stats.forEach(stat => {
+      stat.classList.remove("text-[10px]");
+      stat.classList.add("text-sm");
+    });
+
+    // Example: highlight the row
+    row.style.background = "rgba(16, 185, 129, 0.1)"; // subtle green
   });
 }
 
 removeAd();
 enlargeStats();
+enhancePokemonList();
 
 // Watch for future DOM changes
 const observer = new MutationObserver(mutations => {
@@ -34,6 +71,7 @@ const observer = new MutationObserver(mutations => {
       if (node.nodeType === 1) {
         removeAd(node);
         enlargeStats(node);
+        enhancePokemonList(node);
       }
     });
   }
