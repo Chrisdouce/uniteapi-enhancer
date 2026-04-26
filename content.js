@@ -54,6 +54,9 @@ function enhancePokemonList(node = document) {
       stat.classList.remove("text-[10px]");
       stat.classList.add("text-sm");
     });
+
+    // highlight the row if positive win rate
+    //row.style.background = "rgba(16, 185, 129, 0.1)"; // subtle green
   });
 }
 
