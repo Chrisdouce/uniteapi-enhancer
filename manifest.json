@@ -5,7 +5,7 @@
   "description": "Enhances the uniteapi.dev experience by hiding specific UI elements and improving stat readability.",
   "content_scripts": [
     {
-      "matches": ["*://dev.uniteapi.dev/*"],
+      "matches": ["*://uniteapi.dev/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
